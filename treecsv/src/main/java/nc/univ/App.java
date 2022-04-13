@@ -8,22 +8,22 @@ public class App
 {
     public static void main( String[] args )
     {
-        CsvToJson semestre1 = new CsvToJson("1", Type.semestre);
-        CsvToJson semestre2 = new CsvToJson("2", Type.semestre);
-        CsvToJson semestre3 = new CsvToJson("3", Type.semestre);
-        CsvToJson semestre4 = new CsvToJson("4", Type.semestre);
-        CsvToJson semestre5 = new CsvToJson("5", Type.semestre);
-        CsvToJson parcoursCommun = new CsvToJson("commun", Type.parcours, semestre1);
+        Noeud semestre1 = new Noeud("1", Type.semestre, 10);
+        Noeud semestre2 = new Noeud("2", Type.semestre, 10);
+        Noeud semestre3 = new Noeud("3", Type.semestre, 10);
+        Noeud semestre4 = new Noeud("4", Type.semestre, 10);
+        Noeud semestre5 = new Noeud("5", Type.semestre, 10);
+        Noeud parcoursCommun = new Noeud("commun", Type.parcours, semestre1, 10);
         parcoursCommun.addChildren(semestre2);
         parcoursCommun.addChildren(semestre3);
         parcoursCommun.addChildren(semestre4);
         parcoursCommun.addChildren(semestre5);
-        CsvToJson parcoursInfo = new CsvToJson("informatique", Type.parcours, semestre1);
+        Noeud parcoursInfo = new Noeud("informatique", Type.parcours, semestre1, 10);
         parcoursInfo.addChildren(semestre2);
         parcoursInfo.addChildren(semestre3);
         parcoursInfo.addChildren(semestre4);
         parcoursInfo.addChildren(semestre5);
-        CsvToJson annee2022 = new CsvToJson("2022", Type.annee, parcoursCommun);
+        Noeud annee2022 = new Noeud("2022", Type.annee, parcoursCommun, 10);
         annee2022.addChildren(parcoursInfo);
 
         Gson gson = new Gson();
